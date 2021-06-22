@@ -1,0 +1,15 @@
+---
+- name: FinalProject main execution file
+  hosts: wordpress
+  remote_user: ansible
+  become: true
+  gather_facts: true
+
+- name: Include Apache and PHP
+  import_playbook: finalapachephp.yaml
+
+- name: Include MySQL
+  import_playbook: finalmysql.yaml
+
+- name: Include WordPress
+  import_playbook:  finalwordpress.yaml
